@@ -1,1 +1,1 @@
-# pythonapp
+# pythonapp for ArgoCD implementation
