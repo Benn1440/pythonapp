@@ -21,9 +21,12 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
 
-    - name: Build and push Docker image
+    - name: Build and push multi-arch Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
+        platforms: linux/amd64,linux/arm64  # ← CRITICAL: Add both architectures
         push: true
         tags: benn1440/python-app:latest
+
+
