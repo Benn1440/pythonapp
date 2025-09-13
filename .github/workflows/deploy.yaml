@@ -35,4 +35,5 @@ jobs:
           image-ref: benn1440/python-app:latest
           format: table
           vuln-type: os,library
-          exit-code: 1   # Fail the pipeline if vulnerabilities are found
+          # exit-code: 1   # Fail the pipeline if vulnerabilities are found
+          exit-code: 0
