@@ -1,4 +1,4 @@
-name: Build and Push to Docker Hub
+name: Build, Scan, and Push to Docker Hub
 
 on:
   push:
@@ -29,4 +29,10 @@ jobs:
         push: true
         tags: benn1440/python-app:latest
 
-
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@0.20.0
+      with:
+          image-ref: benn1440/python-app:latest
+          format: table
+          vuln-type: os,library
+          exit-code: 1   # Fail the pipeline if vulnerabilities are found
